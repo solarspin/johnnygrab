@@ -2,6 +2,20 @@
 
 A VS Code sidebar for macOS that records iOS Simulator videos and takes screenshots sized for App Store Connect.
 
+## Why it helps
+
+App Store Connect is strict about media. A video with the wrong size, a variable frame rate or no audio track is rejected at upload. A screenshot with an alpha channel is too. Getting it right by hand means screen recording, then re-encoding, resizing, adding a silent audio track and stripping transparency, usually with ffmpeg and a page of Apple's specs open.
+
+JohnnyGrab does all of that in one click:
+
+- **Every file comes out at a size Apple accepts.** Videos are exported at the exact dimensions, codec, bit rate and constant 30 fps that App Store Connect asks for.
+- **App Previews get the silent audio track Apple requires**, so they upload the first time.
+- **Screenshots have the alpha channel removed**, which App Store Connect otherwise rejects.
+- **The status bar looks like Apple's**: 9:41, full signal and a charged battery, instead of whatever time and battery the simulator happened to show.
+- **A checklist shows which screenshot sizes you still need**, so you know when a submission is complete.
+
+You stay in VS Code next to your project, and you don't need ffmpeg or any other tool beyond Xcode.
+
 ## Features
 
 - **Header video**: exactly 3840x1646, constant 30 fps, H.264, no audio (5-30 s, default 10)
