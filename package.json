@@ -1,0 +1,59 @@
+{
+  "name": "johnnygrab",
+  "displayName": "JohnnyGrab",
+  "description": "Record iOS Simulator videos and take screenshots sized for App Store Connect",
+  "version": "0.0.2",
+  "publisher": "SolarspinDev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solarspin/johnnygrab.git"
+  },
+  "icon": "icon.png",
+  "engines": { "vscode": "^1.87.0" },
+  "categories": ["Other"],
+  "license": "MIT",
+  "activationEvents": ["onStartupFinished"],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "johnnygrab-container",
+          "title": "JohnnyGrab",
+          "icon": "./icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "johnnygrab-container": [
+        {
+          "type": "webview",
+          "id": "johnnygrab.view",
+          "name": "JohnnyGrab"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "JohnnyGrab",
+      "properties": {
+        "johnnygrab.outputFolder": {
+          "type": "string",
+          "default": "~/Desktop",
+          "description": "Folder where videos and screenshots are saved. ~ means your home folder."
+        },
+        "johnnygrab.captureDelay": {
+          "type": "number",
+          "default": 3,
+          "minimum": 0,
+          "maximum": 30,
+          "description": "Seconds to wait after you press Record or Capture before JohnnyGrab starts, so the app can settle."
+        },
+        "johnnygrab.statusBarTime": {
+          "type": "string",
+          "default": "2007-01-09T09:41:00",
+          "description": "Status bar time used when Clean status bar is on. A local date and time like 2007-01-09T09:41:00 (Apple's 9:41) also sets the date; a plain time like 9:41 sets only the clock."
+        }
+      }
+    }
+  }
+}
